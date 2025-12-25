@@ -1,22 +1,25 @@
-🐾 Pet Grooming Appointment System
+# 🐾 Pet Grooming Appointment System
+
 This project is a web-based appointment system designed for a pet grooming salon.
 
-✨ Features
-Service listing (Hizmetler)
-Price list (Fiyatlar)
-Gallery with before/after photos
-Appointment booking system
-Automatic email confirmation
-1-day-before reminder emails
-🛠️ Tech Stack
-Frontend: React / Next.js
-Database: Firebase Firestore
-Automation: n8n Cloud
-Email: Gmail SMTP
-Appointment Logic
-Appointments are stored in Firestore
-Date & time conflicts are prevented
-Booked time slots are disabled in the UI
+## ✨ Features
+- Service listing (Hizmetler)
+- Price list (Fiyatlar)
+- Gallery with before/after photos
+- Appointment booking system
+- Automatic email confirmation
+- 1-day-before reminder emails
+
+## 🛠️ Tech Stack
+- Frontend: React / Next.js
+- Database: Firebase Firestore
+- Automation: n8n Cloud
+- Email: Gmail SMTP
+
+## Appointment Logic
+- Appointments are stored in Firestore
+- Date & time conflicts are prevented
+- Booked time slots are disabled in the UI
 
 ---
 
