@@ -1,0 +1,259 @@
+{
+  "entities": {
+    "Service": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Service",
+      "type": "object",
+      "description": "Represents a grooming service offered by Pawsh Cuts.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the service."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the service (e.g., 'Dog Grooming', 'Cat Grooming', 'Nail Trimming')."
+        },
+        "description": {
+          "type": "string",
+          "description": "Detailed description of the service provided."
+        },
+        "price": {
+          "type": "number",
+          "description": "Price of the service."
+        },
+        "animalType": {
+          "type": "string",
+          "description": "The type of animal this service is for ('dog' or 'cat')."
+        },
+        "duration": {
+          "type": "string",
+          "description": "Estimated duration of the service (e.g., '30 minutes', '1 hour')."
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "description",
+        "price",
+        "animalType"
+      ]
+    },
+    "Appointment": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Appointment",
+      "type": "object",
+      "description": "Represents a grooming appointment scheduled by a user.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the appointment."
+        },
+        "customerId": {
+          "type": "string",
+          "description": "Reference to Customer. (Relationship: Customer 1:N Appointment)"
+        },
+        "serviceId": {
+          "type": "string",
+          "description": "Reference to Service. (Relationship: Service 1:N Appointment)"
+        },
+        "appointmentDateTime": {
+          "type": "string",
+          "description": "Date and time of the appointment.",
+          "format": "date-time"
+        },
+        "petName": {
+          "type": "string",
+          "description": "Name of the pet for the appointment."
+        },
+        "notes": {
+          "type": "string",
+          "description": "Any special notes or requests for the appointment."
+        },
+        "status": {
+          "type": "string",
+          "description": "Status of the appointment (e.g., 'scheduled', 'confirmed', 'completed', 'cancelled')."
+        }
+      },
+      "required": [
+        "id",
+        "customerId",
+        "serviceId",
+        "appointmentDateTime",
+        "petName",
+        "status"
+      ]
+    },
+    "Customer": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Customer",
+      "type": "object",
+      "description": "Represents a customer using the Pawsh Cuts service.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the customer."
+        },
+        "firstName": {
+          "type": "string",
+          "description": "First name of the customer."
+        },
+        "lastName": {
+          "type": "string",
+          "description": "Last name of the customer."
+        },
+        "email": {
+          "type": "string",
+          "description": "Email address of the customer.",
+          "format": "email"
+        },
+        "phoneNumber": {
+          "type": "string",
+          "description": "Phone number of the customer."
+        },
+        "address": {
+          "type": "string",
+          "description": "Address of the customer."
+        }
+      },
+      "required": [
+        "id",
+        "firstName",
+        "lastName",
+        "email",
+        "phoneNumber"
+      ]
+    },
+    "GalleryItem": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "GalleryItem",
+      "type": "object",
+      "description": "Represents an item in the before and after gallery.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the gallery item."
+        },
+        "beforeImageUrl": {
+          "type": "string",
+          "description": "URL of the 'before' image.",
+          "format": "uri"
+        },
+        "afterImageUrl": {
+          "type": "string",
+          "description": "URL of the 'after' image.",
+          "format": "uri"
+        },
+        "petType": {
+          "type": "string",
+          "description": "Type of pet in the image ('dog' or 'cat')."
+        },
+        "description": {
+          "type": "string",
+          "description": "Optional description of the grooming service performed."
+        }
+      },
+      "required": [
+        "id",
+        "beforeImageUrl",
+        "afterImageUrl",
+        "petType"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password",
+      "anonymous"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/services/{serviceId}",
+        "definition": {
+          "entityName": "Service",
+          "schema": {
+            "$ref": "#/backend/entities/Service"
+          },
+          "description": "Stores grooming services offered by Pawsh Cuts. Globally accessible for reading.",
+          "params": [
+            {
+              "name": "serviceId",
+              "description": "Unique identifier for the service."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/customers/{customerId}",
+        "definition": {
+          "entityName": "Customer",
+          "schema": {
+            "$ref": "#/backend/entities/Customer"
+          },
+          "description": "Stores customer profiles.  Customer can only access their own profile.",
+          "params": [
+            {
+              "name": "customerId",
+              "description": "Unique identifier for the customer (matches Firebase auth UID)."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/customers/{customerId}/appointments/{appointmentId}",
+        "definition": {
+          "entityName": "Appointment",
+          "schema": {
+            "$ref": "#/backend/entities/Appointment"
+          },
+          "description": "Stores appointments scheduled by customers. Includes denormalized 'customerId' for authorization independence.",
+          "params": [
+            {
+              "name": "customerId",
+              "description": "Unique identifier for the customer (matches Firebase auth UID)."
+            },
+            {
+              "name": "appointmentId",
+              "description": "Unique identifier for the appointment."
+            }
+          ]
+        }
+      },
+       {
+        "path": "/appointments/{appointmentId}",
+        "definition": {
+          "entityName": "Appointment",
+          "schema": {
+            "$ref": "#/backend/entities/Appointment"
+          },
+          "description": "A global list of all appointments. Used to easily check for booked time slots across all customers. Should be readable by all users to check availability, but writable only under specific conditions (e.g., by the user creating their own appointment).",
+          "params": [
+            {
+              "name": "appointmentId",
+              "description": "Unique identifier for the appointment."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/galleryItems/{galleryItemId}",
+        "definition": {
+          "entityName": "GalleryItem",
+          "schema": {
+            "$ref": "#/backend/entities/GalleryItem"
+          },
+          "description": "Stores items in the before and after gallery. Globally accessible for reading.",
+          "params": [
+            {
+              "name": "galleryItemId",
+              "description": "Unique identifier for the gallery item."
+            }
+          ]
+        }
+      }
+    ],
+    "reasoning": "The Firestore data structure is designed to support the Pawsh Cuts application, focusing on services, appointments, customers, and a before-and-after gallery. The structure prioritizes authorization independence using path-based ownership for customer-related data and global collections for shared resources.\n\n1.  **Services Collection:** Stores grooming services offered. No specific ownership; globally accessible for reading.\n2.  **Customers Collection:** Stores customer profiles, using path-based ownership. This ensures that customer data is private and only accessible to the authenticated user (customer) and administrators.\n3.  **Appointments Subcollection:** Appointments are stored as a subcollection under each customer, enforcing ownership and easy data retrieval. The `customerId` is duplicated within each appointment document to maintain authorization independence. This denormalization avoids the need for security rules to traverse up the hierarchy to validate ownership, thus improving security rule efficiency and enabling atomic operations.\n4.  **Global Appointments Collection:** A top-level `appointments` collection is added. This is a crucial addition to solve the double-booking problem efficiently. The DateTimePicker component can query this single collection for a given day to find all booked slots, without needing to scan through every customer's subcollection, which would be impossible with client-side security rules. Security rules will ensure users can read from this collection to check availability but can only write their own appointments into it.\n5.  **Gallery Items Collection:** Gallery items are globally accessible.\n\nThis design provides authorization independence by avoiding `get()` calls in security rules. QAPs are supported because list operations are naturally scoped to the user's data for appointments, while global collections like `services` and `galleryItems` have uniform security postures that don't require filtering based on user identity. The customer's appointments are secured via path based ownership."
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "placeholderImages": [
+    {
+      "id": "salon-1",
+      "description": "Bright and clean grooming station",
+      "imageUrl": "https://images.unsplash.com/photo-1759142235060-3191ee596c81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxncm9vbWluZyUyMHNhbG9ufGVufDB8fHx8MTc2NjMyNjU0M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "grooming salon"
+    },
+    {
+      "id": "salon-2",
+      "description": "Cozy waiting area for pets and owners",
+      "imageUrl": "https://images.unsplash.com/photo-1715905425937-d8c335941d3d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwZXQlMjB3YWl0aW5nJTIwYXJlYXxlbnwwfHx8fDE3NjYzMzA0MzV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "pet waiting area"
+    },
+    {
+      "id": "dog-before-1",
+      "description": "Scruffy dog before grooming",
+      "imageUrl": "https://images.unsplash.com/photo-1612195684624-33cea8c50960?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzY3J1ZmZ5JTIwZG9nfGVufDB8fHx8MTc2NjMyNjU0M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "scruffy dog"
+    },
+    {
+      "id": "dog-after-1",
+      "description": "Happy and clean dog after grooming",
+      "imageUrl": "https://images.unsplash.com/photo-1646383355400-8383372e8868?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxncm9vbWVkJTIwZG9nfGVufDB8fHx8MTc2NjMyNjU0M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "groomed dog"
+    },
+    {
+      "id": "cat-before-1",
+      "description": "Long-haired cat with matted fur",
+      "imageUrl": "https://images.unsplash.com/photo-1694987009537-890c935ae429?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtYXR0ZWQlMjBjYXR8ZW58MHx8fHwxNzY2MzMwNDM1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "matted cat"
+    },
+    {
+      "id": "cat-after-1",
+      "description": "Sleek and happy cat after a brush and trim",
+      "imageUrl": "https://images.unsplash.com/photo-1630167408988-861241790113?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Z3Jvb21lZCUyMGNhdHxlbnwwfHx8fDE3NjYyMzg2NzB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "groomed cat"
+    },
+    {
+      "id": "dog-before-2",
+      "description": "Overgrown poodle mix before a haircut",
+      "imageUrl": "https://images.unsplash.com/photo-1693251776424-d468c7fa9bb3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8b3Zlcmdyb3duJTIwcG9vZGxlfGVufDB8fHx8MTc2NjMzMDQzNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "overgrown poodle"
+    },
+    {
+      "id": "dog-after-2",
+      "description": "Perfectly styled poodle after grooming",
+      "imageUrl": "https://images.unsplash.com/photo-1584959370427-f640fa7497fd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxncm9vbWVkJTIwcG9vZGxlfGVufDB8fHx8MTc2NjMzMDQzNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "groomed poodle"
+    },
+    {
+      "id": "moment-1",
+      "description": "Nazik bir banyo keyfi yapan küçük köpek",
+      "imageUrl": "https://images.unsplash.com/photo-1641087597391-786085a16f0e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxkb2clMjBiYXRofGVufDB8fHx8MTc2NjMyNjU0M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "dog bath"
+    },
+    {
+      "id": "moment-2",
+      "description": "Nazikçe taranmanın keyfini çıkaran bir kedi",
+      "imageUrl": "https://images.unsplash.com/photo-1676268943534-2ff81a416f69?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8YnJ1c2hpbmclMjBjYXR8ZW58MHx8fHwxNzY2MzMwNDM1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "brushing cat"
+    },
+    {
+      "id": "moment-3",
+      "description": "Bir köpeğin saç kesimindeki son dokunuşlar",
+      "imageUrl": "https://images.unsplash.com/photo-1651273427958-bf78352e39be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxkb2clMjBoYWlyY3V0fGVufDB8fHx8MTc2NjMzMDQzNXww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "dog haircut"
+    },
+    {
+      "id": "moment-4",
+      "description": "Bakım sonrası papyonlu mutlu bir köpek",
+      "imageUrl": "https://images.unsplash.com/photo-1543466835-00a7907e9de1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxoYXBweSUyMGRvZ3xlbnwwfHx8fDE3NjYyMzg2NzB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "happy dog"
+    },
+    {
+      "id": "happy-dog",
+      "description": "A happy, well-groomed golden retriever smiling.",
+      "imageUrl": "https://images.unsplash.com/photo-1537204696486-967f1b7198c8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxoYXBweSUyMGRvZ3xlbnwwfHx8fDE3NjYyMzg2NzB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "happy dog"
+    }
+  ]
+}

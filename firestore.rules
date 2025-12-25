@@ -1,0 +1,40 @@
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Allow public read access for services and gallery
+    match /services/{serviceId} {
+      allow read: if true;
+      allow write: if false;
+    }
+    match /galleryItems/{galleryItemId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    // Customer data is private
+    match /customers/{customerId} {
+      allow read, write: if request.auth != null && request.auth.uid == customerId;
+      
+      // Appointments are also private to the customer
+      match /appointments/{appointmentId} {
+        // A user can create/read/write their OWN appointments
+        allow create, read, write: if request.auth != null && request.auth.uid == customerId;
+      }
+    }
+
+    // Global appointments collection for availability checks
+    match /appointments/{appointmentId} {
+
+      // ✅ Allow read access for availability checks by any authenticated user
+      allow read: if request.auth != null;
+
+      // ✅ Allow a user to create an appointment for THEMSELVES
+      allow create: if request.auth != null && request.resource.data.customerId == request.auth.uid;
+
+      // ❌ Block all direct client-side updates and deletes
+      allow update, delete: if false;
+    }
+  }
+}
